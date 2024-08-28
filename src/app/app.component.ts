@@ -1,10 +1,13 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
   standalone: true,
+  imports: [RouterOutlet, FormsModule ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title='calculadora';
@@ -18,14 +21,14 @@ export class AppComponent {
     this.number=this.salva;
     this.number+=numero;
     this.salva=this.number;
-    console.log(`numero: ${this.number}`)
+    
     
     
   }
   acciones(accion:string){
     this.number=this.salva;
     this.number+=accion;
-    console.log(eval('4*2'))
+    
     this.salva=this.number;
   }
   igualdad(){
@@ -38,22 +41,5 @@ export class AppComponent {
     this.number='';
     this.resultado='0';
   }
-  /*users = [{id: 0, name: 'Sarah'}, {id: 1, name: 'Amy'}, {id: 2, name: 'Rachel'}, {id: 3, name: 'Jessica'}, {id: 4, name: 'Poornima'}];
-  isEditable = true;
-  greet(){
-    console.log('Hello, there');
-  };
-  message = '';
-  number = 1;
-  onMouseOver() {
-    this.message = 'Way to go';
-  };
-  @Input() occupation = '';
-  @Output() addItemEvent = new EventEmitter<string>();
-  addItem(){
-    this.addItemEvent.emit('🐢');
-  }
-  sumar(){
-    this.number++;
-  }*/
+  
 }
